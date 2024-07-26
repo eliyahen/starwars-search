@@ -1,39 +1,39 @@
-import React, { FormEventHandler, useCallback, useEffect, useState } from "react"
+import { useCallback } from "react"
 import { useSearchParams } from "react-router-dom"
-import useDebounceCallback from "../../utils/useDebounceCallback"
-import "./SearchPage.scss"
+import SearchResults from "./SearchResults"
+import useStarWars from "../../providers/starwars/StarWarsProvider"
+import SearchInput from "./SearchInput"
+import "./search.scss"
 
 function SearchPage({}) {
     const [searchParams, setSearchParams] = useSearchParams()
-
-    const [searchValue, setSearchValue] = useState('')
-
-    const handleSearchValue = useCallback((evt: React.ChangeEvent<HTMLInputElement>) => {
-        setSearchValue(evt.target.value)
-    }, [])
-
-    // make a debounced function to update the search params.
-    const updateSearch = useCallback((value: string) => {
-        const trimmedValue = value.trim()
-        setSearchParams(trimmedValue ? { search: trimmedValue} : {})
+    const searchTerm = searchParams.get('search') ?? undefined; // the actual search term for searching is read from url search params
+    
+    // functio to update search
+    const updateSearch = useCallback((params: {search: string}) => {
+        // isolate search param for processing
+        const {search, ...restParams} = params
+        const newSearchTerm = search.trim() // trim search param
+        setSearchParams({
+            ...restParams,
+            ...(newSearchTerm ? {search: newSearchTerm} : {}), // only append search if value is not empty
+        })
     }, [setSearchParams])
-    const updateSearchDebounced = useDebounceCallback(updateSearch, 500)
 
-    const handleSubmit = useCallback((evt: React.FormEvent) => {
-        evt.preventDefault()
-        evt.stopPropagation()
-        updateSearch(searchValue) // immediately
-    }, [searchValue])
-
-    // update search debounced when search value has changed.
-    useEffect(() => {
-        updateSearchDebounced(searchValue)
-    }, [searchValue])
+    const {isReady, categories} = useStarWars()
 
     return (
-        <form onSubmit={handleSubmit} className="searchContainer">
-            <input type="search" value={searchValue} onChange={handleSearchValue} placeholder="Search in Star Wars..." className="mainSearchInput" />
-        </form>
+        <div className="searchContainer">
+            <SearchInput search={searchTerm} updateSearch={updateSearch} />
+
+            {searchTerm
+                ? isReady ? (
+                    <SearchResults categories={categories} searchTerm={searchTerm} />
+                ) : (
+                    <div>initializing categories...</div>
+                )
+                : undefined}
+        </div>
     )
 }
 

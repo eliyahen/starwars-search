@@ -48,11 +48,16 @@ a {
     }
   }
 
+  form {
+    max-width: 100%;
+  }
+
   input[type="text"],
   input[type="search"] {
     border: 1px solid var(--borderColor);
     border-radius: 4px;
     padding: 0.25em 0.5em;
+    max-width: 100%;
 
     &:focus,
     &:focus-visible {
@@ -61,3 +66,16 @@ a {
     }
   }
   
+  .text {
+    &.primary {
+      color: var(--textColor);
+    }
+
+    &.secondary {
+      color: var(--textSecondary);
+    }
+
+    &.error {
+      color: var(--textError);
+    }
+  }

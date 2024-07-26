@@ -1,18 +1,25 @@
 .theme {
     // default light and common
-    --bgColor: gold;
-    --bgColorHover: goldenrod;
-    --borderColor: orange;
     --linkColor: blue;
     --linkColorHover: dodgerblue;
 
     &.theme-light {
         --pageBackgroundColor: white;
         --textColor: black;
+        --textSecondary: dimgray;
+        --textError: crimson;
+        --bgColor: gold;
+        --bgColorHover: goldenrod;
+        --borderColor: orange;
     }
 
     &.theme-dark {
         --pageBackgroundColor: black;
         --textColor: white;
+        --textSecondary: lightgray;
+        --textError: crimson;
+        --bgColor: maroon;
+        --bgColorHover: brown;
+        --borderColor: orange;
     }
 }

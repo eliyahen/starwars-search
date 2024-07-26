@@ -1,0 +1,57 @@
+.searchContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 1.5em;
+
+    .mainSearchInput {
+        font-size: 1.6em;
+        width: 400px;
+        border-radius: 0.4em;
+    }
+
+    .results {
+        display: flex;
+        flex-direction: column;
+        width: 400px;
+        max-width: 100%;
+        row-gap: 0.5em;
+
+        .resultsSection {
+            flex: auto;
+            display: flex;
+            flex-direction: column;
+            row-gap: 0.25em;
+
+            .resultsSectionHeader {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                padding: 0.2em;
+                background-color: var(--bgColor);
+                border: 1px solid var(--borderColor);
+
+                & > h5 {
+                    font-size: 1.2em;
+                    margin: 0;
+                    padding: 0;
+                }
+            }
+
+            .resultsSectionList {
+                display: flex;
+                flex-direction: column;
+                align-items: stretch;
+                row-gap: 0.1em;
+
+                & > div {
+                    overflow: hidden;
+                    white-space: nowrap;
+                    text-overflow: ellipsis;
+                }
+            }
+        }
+    }
+}
+
+
