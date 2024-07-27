@@ -28,6 +28,11 @@ function SearchInput({search, updateSearch}: SearchInputProps) {
             clearTimeout(timer)
         }
     }, [searchValue])
+
+    // update input value when search prop is changed
+    useEffect(() => {
+        setSearchValue(search ?? '')
+    }, [search])
     
     return (
         <form onSubmit={handleSubmit}>

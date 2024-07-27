@@ -43,8 +43,8 @@ function SearchResultsSection({category, searchTerm, max = 3}: SearchResultsSect
                 </div>
             </div>
             <div className="resultsSectionList">
-                {items.map(({name, title}) => (
-                    <div>{name ?? title}</div>
+                {items.map(({url, name, title}) => (
+                    <div key={url}>{name ?? title}</div>
                 ))}
             </div>
         </div>

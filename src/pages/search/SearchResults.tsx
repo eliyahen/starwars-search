@@ -9,7 +9,7 @@ function SearchResults({categories, searchTerm}: SearchResultsProps) {
     return (
         <div className="results">
             {categories.map((category) => (
-                <SearchResultsSection category={category} searchTerm={searchTerm} />
+                <SearchResultsSection key={category} category={category} searchTerm={searchTerm} />
             ))}
         </div>
     )

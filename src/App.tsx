@@ -6,16 +6,16 @@ import CategoryPage from './pages/categories/CategoryPage'
 
 function App() {
   return (
-    <Layout>
+    <BrowserRouter>
       <StarWarsProvider>
-        <BrowserRouter>
+        <Layout>
           <Routes>
             <Route index element={<SearchPage />} />
             <Route path="/:category" element={<CategoryPage />} />
           </Routes>
-        </BrowserRouter>
+        </Layout>
       </StarWarsProvider>
-    </Layout>
+    </BrowserRouter>
   )
 }
 

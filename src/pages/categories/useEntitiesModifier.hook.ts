@@ -159,7 +159,6 @@ function useEntitiesModifier<Model extends StarWarsEntityBase>({emptyModel, init
         return curEntity
     }, [])
 
-    console.log(modificationState)
     return {
         state: modificationState,
         addEntity,
