@@ -25,7 +25,7 @@ function CellData<Model extends StarWarsEntityBase>({entityId, attribute, value,
         const newValue = inputElemRef.current?.value ?? ''  // get current value from the uncontrolled input
         saveCell([entityId, attribute], newValue)
         editCellMode(undefined)
-    }, [saveCell, entityId, attribute])
+    }, [saveCell, editCellMode, entityId, attribute])
 
     const handleFormCancel = useCallback(() => {
         editCellMode(undefined)

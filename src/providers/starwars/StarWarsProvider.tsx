@@ -41,7 +41,7 @@ export function StarWarsProvider({children}: StarWarsProviderProps) {
         isReady: !isLoading && !error,
         categories: Object.keys(endpoints ?? {}).sort((a, b) => a.localeCompare(b)),
         searchCategory,
-    }), [endpoints, searchCategory])
+    }), [endpoints, searchCategory, isLoading, error])
 
     return (
         <StarWarsContext.Provider value={data}>

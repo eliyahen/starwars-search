@@ -58,7 +58,7 @@ function entitiesModificationReducer<Model extends StarWarsEntityBase>(state: En
 
         case 'delete': {
             const { id } = actionObj
-            let newState = {...state}
+            const newState = {...state}
 
             const foundNewEntity = state.added.find((entity) => entity.url === id)  // try find the id in the new added entities
             if (foundNewEntity) {
@@ -132,7 +132,7 @@ function useEntitiesModifier<Model extends StarWarsEntityBase>({emptyModel, init
             data: entity,
         })
         return entity
-    }, [])
+    }, [emptyModel])
 
     const changeEntity = useCallback(async (url: string, data: Partial<Omit<Model, 'url'>>) => {
         const curEntity = entitiesRef.current.find((item) => item.url === url)

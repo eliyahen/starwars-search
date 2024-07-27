@@ -16,7 +16,7 @@ function SearchInput({search, updateSearch}: SearchInputProps) {
     const handleSubmit = useCallback((evt: React.FormEvent) => {
         evt.preventDefault()
         updateSearch({search: searchValue}) // immediately
-    }, [searchValue])
+    }, [updateSearch, searchValue])
 
     // when search value has changed, update the search with debounce (to avoid requests that become invalid)
     useEffect(() => {
@@ -27,7 +27,7 @@ function SearchInput({search, updateSearch}: SearchInputProps) {
         return () => {
             clearTimeout(timer)
         }
-    }, [searchValue])
+    }, [updateSearch, searchValue])
 
     // update input value when search prop is changed
     useEffect(() => {

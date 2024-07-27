@@ -5,7 +5,7 @@ import { StarWarsEntityBase } from "../../providers/starwars/types"
 import CellData, { CellPosition } from "./CellData"
 import useEntitiesModifier from "./useEntitiesModifier.hook"
 
-interface BaseCategoryDataProps<Model extends {}> {
+interface BaseCategoryDataProps<Model extends StarWarsEntityBase> {
     category: string
     searchTerm?: string
     attributes: (keyof Model)[]
@@ -41,7 +41,7 @@ function BaseCategoryData<Model extends StarWarsEntityBase>({category, searchTer
             [attributes[0]]: (id: string) => `New Entity - ${id}`,
         }
         addEntity(undefined, dataWithId)
-    }, [addEntity])
+    }, [addEntity, attributes[0]])
 
     if (!isReady) {
         return <div>Initializing...</div>

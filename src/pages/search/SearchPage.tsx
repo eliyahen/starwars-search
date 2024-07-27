@@ -5,7 +5,7 @@ import useStarWars from "../../providers/starwars/StarWarsProvider"
 import SearchInput from "./SearchInput"
 import "./search.scss"
 
-function SearchPage({}) {
+function SearchPage() {
     const [searchParams, setSearchParams] = useSearchParams()
     const searchTerm = searchParams.get('search') ?? undefined; // the actual search term for searching is read from url search params
     

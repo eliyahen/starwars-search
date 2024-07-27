@@ -1,6 +1,6 @@
 import { StarWarsEndpointsMap, StarWarsEntityBase } from "./types"
 
-export namespace StarWarsApi {
+export module StarWarsApi {
     const baseUrl = 'https://swapi.dev/api'
 
     export interface SearchCategoryResponse<T extends StarWarsEntityBase> {

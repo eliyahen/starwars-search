@@ -3,7 +3,7 @@ import PeopleCategoryData from "./PeopleCategoryData";
 import "./category.scss"
 import FilmsCategoryData from "./FilmsCategoryData";
 
-function CategoryPage({}) {
+function CategoryPage() {
     const { category = '' } = useParams()
     const [searchParams] = useSearchParams()
     const searchTerm = searchParams.get('search') ?? undefined

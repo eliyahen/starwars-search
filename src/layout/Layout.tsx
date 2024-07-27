@@ -18,7 +18,7 @@ function Layout({children}: LayoutProps) {
     const navigate = useNavigate()
     const gotoHome = useCallback(() => {
         navigate({ pathname: '/', search: '' })
-    }, [])
+    }, [navigate])
 
     return (
         <div className={`layoutMain theme theme-${themeMode}`}>
