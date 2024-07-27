@@ -20,11 +20,35 @@
             & > div {
                 font-weight: bold;
                 color: var(--borderColor);
+                margin-bottom: 1em;
             }
         }
 
         .categoryDataRow {
             display: contents;
         }
+
+        .cellData {
+            height: 100%;
+
+            .cellDataValue {
+                height: 100%;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: var(--bgColor);
+                }
+            }
+
+            .cellDataForm {
+                input {
+                    max-width: 10em;
+                }
+            }
+        }
+    }
+
+    .createButton {
+        align-self: flex-start;
     }
 }

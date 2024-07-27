@@ -15,7 +15,6 @@ function SearchInput({search, updateSearch}: SearchInputProps) {
     // handle submit form (also when hitting "Enter" on the form's inputs), to immediately change search params
     const handleSubmit = useCallback((evt: React.FormEvent) => {
         evt.preventDefault()
-        evt.stopPropagation()
         updateSearch({search: searchValue}) // immediately
     }, [searchValue])
 

@@ -23,7 +23,7 @@ function SearchResultsSection({category, searchTerm, max = 3}: SearchResultsSect
             pathname: generatePath('/:category', {category}),
             search: location.search, // keep the search params in url
         })
-    }, [category])
+    }, [category, location.search])
 
     return (
         <div className="resultsSection">
