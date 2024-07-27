@@ -21,7 +21,6 @@ interface StarWarsProviderProps {
 
 export function StarWarsProvider({children}: StarWarsProviderProps) {
     // initially load star wars categories with their coreresponding endpoints.
-    console.log('render provider')
     const {isLoading, data: endpoints, error} = useStarWarsCategoryEndpoints()
 
     // create searchCategory function that will auto bind category to its correct api url.
@@ -40,7 +39,7 @@ export function StarWarsProvider({children}: StarWarsProviderProps) {
 
     const data = useMemo<StarWarsContextData>(() => ({
         isReady: !isLoading && !error,
-        categories: Object.keys(endpoints ?? {}),
+        categories: Object.keys(endpoints ?? {}).sort((a, b) => a.localeCompare(b)),
         searchCategory,
     }), [endpoints, searchCategory])
 
