@@ -19,3 +19,12 @@ export interface StarWarsEntityPeople extends StarWarsEntityBase {
     hair_color: string
     eye_color: string
 }
+
+export interface StarWarsEntityFilm extends StarWarsEntityBase {
+    title: string
+    name: never
+    episode_id: number
+    release_date: string
+    director: string
+    producer: string
+}
